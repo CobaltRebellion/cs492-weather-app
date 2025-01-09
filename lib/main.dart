@@ -56,7 +56,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> { // underscore means it is private
 
-  List<String> _myNames = [
+// add more names to myNames
+// use a number to track the index of the name you want to use
+// Cycle through the names when you press the button, incrementing the number
+// When you reach the highest index, reset the number back to zero
+//
+
+  final List<String> _myNames = [
     "Dan",
     "Steve"
   ];
@@ -66,7 +72,6 @@ class _MyHomePageState extends State<MyHomePage> { // underscore means it is pri
   @override
   void initState() {
     super.initState();
-
     _myName = _myNames[0];
 
   }
