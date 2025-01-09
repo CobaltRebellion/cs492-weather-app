@@ -54,17 +54,26 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _MyHomePageState extends State<MyHomePage> { // underscore means it is private
 
-  void _incrementCounter() {
+  List<String> _myNames = [
+    "Dan",
+    "Steve"
+  ];
+
+  String? _myName;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _myName = _myNames[0];
+
+  }
+
+  void onPressed(){
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      _myName = _myNames[1];
     });
   }
 
@@ -105,21 +114,23 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            Container(
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(border: Border.all()),
+              child: Center(
+                child: Text(
+                  'Hello $_myName',
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            TextButton(
+              onPressed: onPressed,
+              child: const Text("Press me please"))
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
