@@ -14,7 +14,8 @@ void main() async {
   Map<String, dynamic> forecastHourlyJsonData = await getJsonFromUrl(forecastHourlyUrl);
 
   // Pass the daily and hourly forecasts to processForecasts
-  // processForecasts(forecastJsonData["properties"]["periods"]);
+  
+  processForecasts(forecastJsonData["properties"]["periods"]);
   processForecasts(forecastHourlyJsonData["properties"]["periods"]);
 
   return;
@@ -26,7 +27,7 @@ Future<Map<String, dynamic>> getJsonFromUrl(String url) async {
 }
 
 void processForecasts(List<dynamic> forecasts){
-  // TODO: pass the array of forcasts in from main
+
   // For loop through the forecasts and process each forecast with the
   // processForecast function below
   for (var forecast in forecasts){
@@ -36,7 +37,7 @@ void processForecasts(List<dynamic> forecasts){
 }
 
 void processForecast(Map<String, dynamic> forecast){
-  // TODO: Pass a forecast entry (either hourly or bidaily), and extract
+
   // The proper values that will be useful. i.e. temperature, shortForecast, longForecast
   // for now, don't return anything, just assign values for each
   // i.e. String shortForcast = "";
