@@ -44,10 +44,10 @@ class Forecast{
     );
   }
 
-  // TODO: Finish the toString() function, printing every value
+  // TODONE: Finish the toString() function, printing every value
   @override
   String toString(){
-    return "name: ${name ?? "None"}\n" // TODO: if this is null, print "None"
+    return "name: ${name ?? "None"}\n" // TODONE: if this is null, print "None"
       "isDaytime: ${isDaytime ? "Yes" : "No"}\n"
       "temperature: ${temperature}\n"
       "temperatureUnit: ${temperatureUnit}\n"
@@ -62,7 +62,7 @@ class Forecast{
 }
 
 Future <List<Forecast>> getForecastFromPoints(double lat, double lon) async{
-  // TODO: Update this function to return a list of forecasts
+  // TODONE: Update this function to return a list of forecasts
   // make a request to the weather api using the latitude and longitude and decode the json data
   String pointsUrl = "https://api.weather.gov/points/${lat},${lon}";
   Map<String, dynamic> pointsJson = await getRequestJson(pointsUrl);
@@ -77,7 +77,7 @@ Future <List<Forecast>> getForecastFromPoints(double lat, double lon) async{
 }
 
 Future <List<Forecast>> getForecastHourlyFromPoints(double lat, double lon) async{
-  // TODO: Update this function to return a list of forecasts
+  // TODONE: Update this function to return a list of forecasts
   // make a request to the weather api using the latitude and longitude and decode the json data
   String pointsUrl = "https://api.weather.gov/points/${lat},${lon}";
   Map<String, dynamic> pointsJson = await getRequestJson(pointsUrl);
@@ -92,7 +92,7 @@ Future <List<Forecast>> getForecastHourlyFromPoints(double lat, double lon) asyn
 }
 
 List<Forecast> processForecasts(List<dynamic> forecasts){
-  // TODO: Change this function to return a List of Forecast Objects
+  // TODONE: Change this function to return a List of Forecast Objects
   List<Forecast> forecastObjs = [];
 
   for (dynamic forecast in forecasts){
