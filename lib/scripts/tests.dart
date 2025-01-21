@@ -5,6 +5,10 @@ import 'location.dart' as location;
 //   testForecast();
 // }
 
+void testLocation() async {
+  location.getLocationFromAddress("Scapoose", "OR", "97056");
+}
+
 
 void testForecast() async {
 // testing with Bend, OR coordinates
