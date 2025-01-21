@@ -7,14 +7,33 @@ import 'location.dart' as location;
 
 void testLocation() async {
 
-  // TODO: Create a list of Map<String, String>
+  // TODONE maybe, i'm not sure: Create a list of Map<String, String>
   // Add several (at least 5) city, state, zip Map<String, String> to the list
   // iterate through the list, calling location.getLocationFromAddress function for each iteration
   // passing in the city, state, and zip.
   // Debug with a breakpoint after the return (you can use a placeholder like print("test") for your breakpoint)
   // Check to ensure each location returns as expected through debugging. 
 
-  location.getLocationFromAddress("oijeqofwkjfla", "asdfsd", "98839829382");
+  List<Map<String, String>> addresses = [
+    {'city': 'New York', 'state': 'NY', 'zip': '10001'},
+    {'city': 'Los Angeles', 'state': 'CA', 'zip': '90001'},
+    {'city': 'Chicago', 'state': 'IL', 'zip': '60601'},
+    {'city': 'Houston', 'state': 'TX', 'zip': '77001'},
+    {'city': 'Miami', 'state': 'FL', 'zip': '33101'},
+    {'city': 'oijeqofwkjfla', 'state': 'asdfsd', 'zip': '98839829382'}, // Invalid address
+  ];
+
+  // Iterate through the list of addresses
+  for (var address in addresses) {
+    String city = address['city']!;
+    String state = address['state']!;
+    String zip = address['zip']!;
+
+    // Call getLocationFromAddress for each entry
+    location.getLocationFromAddress(city, state, zip);
+
+  }
+  return print("Test");
 
 }
 
