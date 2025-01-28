@@ -78,9 +78,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void setLocation() async {
     if (_location == null){
-      location.Location currentLocation = await location.getLocationFromGps();
-
-      List<forecast.Forecast> currentForecasts = await getForecasts(currentLocation);
+      // location.Location currentLocation = await location.getLocationFromGps();
+      //location.Location? currentLocation = await location.getLocationFromAddress("Bend", "OR", "97702");
+      location.Location currentLocation = location.Location(state: "OR", city: "Bend", zip: "97702", latitude: 44.0, longitude: -121.0);
+      List<forecast.Forecast> currentForecasts = await getForecasts(currentLocation!);
 
       setState(() {
         _location = currentLocation;

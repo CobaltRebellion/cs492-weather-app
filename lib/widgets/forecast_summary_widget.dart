@@ -16,10 +16,11 @@ class ForecastSummaryWidget extends StatelessWidget {
     // Try add spacing and a border around the outside
     // Update the text as well, so the name, forecast, and temperature have different formatting
     return Column(
+      spacing: 16,
       children: [
         Text(_forecast.name ?? ""),
-        Text(_forecast.shortForecast),
-        Text("${_forecast.temperature}${_forecast.temperatureUnit}")
+        Text("It is currently ${_forecast.shortForecast}"),
+        Text("It is ${_forecast.temperature}${_forecast.temperatureUnit}")
       ],
     );
   }
