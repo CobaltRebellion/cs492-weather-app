@@ -31,21 +31,21 @@ Future<File> writeLocation(int counter) async {
   return file.writeAsString('$counter');
 }
 
-// // example from docs, editing to work with our stuff, likely won't translate well
-// class User {
-//   final String city;
-//   final String state;
-//   final String zip;
+// example from docs, editing to work with our stuff, likely won't translate well
+class User {
+  final String city;
+  final String state;
+  final String zip;
 
-//   User(this.city, this.state, this.zip);
+  User(this.city, this.state, this.zip);
 
-//   User.fromJson(Map<String, dynamic> json)
-//     : city = json['city'] as String,
-//       state = json['state'] as String,
-//       zip = json['zip'];
+  User.fromJson(Map<String, dynamic> json)
+    : city = json['city'] as String,
+      state = json['state'] as String,
+      zip = json['zip'];
 
-//   Map<String, dynamic> toJson() => {'city': city, 'state': state, 'zip': zip};
-// }
+  Map<String, dynamic> toJson() => {'city': city, 'state': state, 'zip': zip};
+}
 
 // other stuff
 class LocationTabWidget extends StatefulWidget {
