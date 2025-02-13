@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:weatherapp/scripts/location.dart' as location;
+import 'package:path_provider/path_provider.dart';
 
 // TODO:
 // Refer to this documentation:
@@ -9,6 +12,42 @@ import 'package:weatherapp/scripts/location.dart' as location;
 // For now you don't need to worry about deleting data or ensuring no redundant data
 // HINT: You will likely want to create a fromJson() factory and a toJson() method to the location.dart Location class
 
+// json stuff
+Future<String> get _localPath async {
+  final directory = await getApplicationDocumentsDirectory();
+
+  return directory.path;
+}
+
+Future<File> get _localFile async {
+  final path = await _localPath;
+  return File('$path/savedlocations.txt');
+}
+
+Future<File> writeLocation(int counter) async {
+  final file = await _localFile;
+
+  // Write the file
+  return file.writeAsString('$counter');
+}
+
+// // example from docs, editing to work with our stuff, likely won't translate well
+// class User {
+//   final String city;
+//   final String state;
+//   final String zip;
+
+//   User(this.city, this.state, this.zip);
+
+//   User.fromJson(Map<String, dynamic> json)
+//     : city = json['city'] as String,
+//       state = json['state'] as String,
+//       zip = json['zip'];
+
+//   Map<String, dynamic> toJson() => {'city': city, 'state': state, 'zip': zip};
+// }
+
+// other stuff
 class LocationTabWidget extends StatefulWidget {
   const LocationTabWidget({
     super.key,
@@ -46,6 +85,7 @@ class _LocationTabWidgetState extends State<LocationTabWidget> {
   void _addLocation(location.Location location){
     setState(() {
       _savedLocations.add(location);
+      _savedLocations.map((loc)=>loc.toJson);
     });
   }
 
