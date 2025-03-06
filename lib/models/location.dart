@@ -7,13 +7,15 @@ class Location {
   final String? zip;
   final double latitude;
   final double longitude;
+  final String? url;
 
   Location(
       {required this.state,
       required this.city,
       required this.zip,
       required this.latitude,
-      required this.longitude});
+      required this.longitude,
+      this.url});
 
   factory Location.fromJson(Map<String, dynamic> json) {
     return Location(
@@ -21,7 +23,8 @@ class Location {
         city: json["city"],
         zip: json["zip"],
         latitude: json["latitude"],
-        longitude: json["longitude"]);
+        longitude: json["longitude"],
+        url: json["url"]);
   }
 
   Map<String, dynamic> toJson() {
@@ -30,7 +33,8 @@ class Location {
       "city": city,
       "zip": zip,
       "latitude": latitude,
-      "longitude": longitude
+      "longitude": longitude,
+      "url": url
     };
   }
 
@@ -66,7 +70,7 @@ Future<Location?> getLocationFromAddress(
 
     // return a Location object with the complete location
     return Location(
-        city: city, state: state, zip: zip, latitude: lat, longitude: lon);
+        city: city, state: state, zip: zip, latitude: lat, longitude: lon,);
   } on geocoding.NoResultFoundException {
     // throws NoResultFoundException when geocoding fails
     return null;
